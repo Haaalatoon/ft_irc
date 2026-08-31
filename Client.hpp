@@ -16,6 +16,8 @@ private:
 public:
     Client();
     Client(int FD);
+    Client(const Client& other);
+    Client& operator=(const Client& other); 
     ~Client();
 
     std::string getNickname() const;

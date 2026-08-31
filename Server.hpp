@@ -4,10 +4,19 @@
 #include "Client.hpp"
 #include "Channel.hpp"
 #include <vector>
+#include <algorithm>  
 #include <map>
 #include <poll.h>
 #include <netinet/in.h>
 #include <string>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <cctype>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <signal.h>
 
 class Server {
 private:

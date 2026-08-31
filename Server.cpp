@@ -1,12 +1,4 @@
 #include "Server.hpp"
-#include <iostream>
-#include <cstring>
-#include <cstdlib>
-#include <cctype>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <signal.h>
 
 bool Server::_running = false;
 
@@ -295,19 +287,24 @@ void Server::dispatch(int fd, const std::string& cmd, std::vector<std::string>& 
     for (size_t i = 0; i < upperCmd.size(); ++i)
         upperCmd[i] = std::toupper(upperCmd[i]);
 
-    void (Server::*handlers[])(int, std::vector<std::string>) = {
+    // ✅ FIX: Use static arrays (C++98 compliant)
+    typedef void (Server::*CommandHandler)(int, std::vector<std::string>);
+
+    static CommandHandler handlers[13] = {
         &Server::handlePass,   &Server::handleNick,   &Server::handleUser,
         &Server::handleJoin,   &Server::handlePart,   &Server::handlePrivmsg,
         &Server::handleKick,   &Server::handleInvite, &Server::handleTopic,
         &Server::handleMode,   &Server::handleQuit,   &Server::handlePing,
         &Server::handleCap
     };
-    std::string cmds[] = {
+
+    static std::string cmds[13] = {
         "PASS", "NICK", "USER", "JOIN", "PART", "PRIVMSG",
         "KICK", "INVITE", "TOPIC", "MODE", "QUIT", "PING",
         "CAP"
     };
-    const int count = sizeof(cmds) / sizeof(cmds[0]);
+
+    const int count = 13;
 
     for (int i = 0; i < count; ++i) {
         if (upperCmd == cmds[i]) {
