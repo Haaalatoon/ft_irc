@@ -4,7 +4,7 @@
 #include <algorithm>
 
 static bool isValidChannelName(const std::string& name) {
-    if (name.empty() || (name[0] != '#' && name[0] != '&') || name.size() > 200)
+    if (name.empty() || name[0] != '#' || name.size() > 200)
         return false;
 
     for (size_t i = 1; i < name.size(); ++i) {

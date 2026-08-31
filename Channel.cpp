@@ -31,12 +31,6 @@ void Channel::removeMember(int fd) {
         _operators.erase(it); 
         return ;
     }
-    
-    // ✅ Also check invite list (cleanup)
-    it = std::find(_inviteList.begin(), _inviteList.end(), fd);
-    if (it != _inviteList.end()) {
-        _inviteList.erase(it);
-    }
 }
 
 bool Channel::isMember(int fd) const {
