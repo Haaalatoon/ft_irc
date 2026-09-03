@@ -154,7 +154,7 @@ bool Server::handleClientData(size_t& index) {
     int fd = pollFD[index].fd;
     char temp[1024];
     int rc = recv(fd, temp, sizeof(temp), 0);
-    if (rc <= 0) {
+    if (rc <= 0) { // 🔴🔴🔴 The Fix 🔴🔴🔴
         removeClient(fd);
         return true;
     }
