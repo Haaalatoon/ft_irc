@@ -155,8 +155,11 @@ bool Server::handleClientData(size_t& index) {
     char temp[1024];
     int rc = recv(fd, temp, sizeof(temp), 0);
     if (rc <= 0) {
-        removeClient(fd);
-        return true;
+        if (rc == 0 || errno != EWOULDBLOCK) {
+            removeClient(fd);
+            return true;
+        }
+        return false;
     }
     clients[fd].appendToBuffer(temp, rc);
     parseMessages(fd);
@@ -284,6 +287,7 @@ void Server::dispatch(int fd, const std::string& cmd, std::vector<std::string>& 
     for (size_t i = 0; i < upperCmd.size(); ++i)
         upperCmd[i] = std::toupper(upperCmd[i]);
 
+    // ✅ FIX: Use static arrays (C++98 compliant)
     typedef void (Server::*CommandHandler)(int, std::vector<std::string>);
 
     static CommandHandler handlers[13] = {
