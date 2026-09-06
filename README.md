@@ -164,11 +164,9 @@ IRC messages are text-based and normally terminated with `\r\n`. Since network d
 
 # Resources
 
-* **RFC 2812** — Internet Relay Chat: Client Protocol
-* **RFC 2811** — Internet Relay Chat: Channel Management
-* **Beej's Guide to Network Programming** — Socket programming and networking
+* **RFC 1459:** — Internet Relay Chat Protocol (https://www.rfc-editor.org/info/rfc1459
 * **Linux `man` pages** — `socket()`, `bind()`, `listen()`, `accept()`, `poll()`, `recv()`, `send()`, etc.
-* **cppreference** — C++98 and standard library reference
+* **geeksforgeeks** — socket programming in C (https://www.geeksforgeeks.org/c/socket-programming-cc/)
 
 ### AI Usage
 
