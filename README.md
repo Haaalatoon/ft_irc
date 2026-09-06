@@ -179,5 +179,3 @@ AI was used as a learning and development aid during the project, mainly for:
 * Understanding IRC commands and protocol behavior.
 * Investigating compiler errors and debugging issues.
 * Reviewing code and discussing possible implementation approaches.
-
-The final implementation, architecture, testing, and project decisions were made by the authors.
