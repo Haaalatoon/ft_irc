@@ -115,7 +115,6 @@ Once registration is complete, the client can use the IRC commands.
 | `TOPIC`   | `TOPIC <channel> [:<topic>]`              | View/change topic            |
 | `KICK`    | `KICK <channel> <user>`                   | Remove a user                |
 | `MODE`    | `MODE <channel> <mode> [parameter]`       | Change channel settings      |
-| `QUIT`    | `QUIT [:<message>]`                       | Disconnect                   |
 
 ### Example
 
@@ -133,7 +132,6 @@ INVITE bob #general
 TOPIC #general :Welcome to our channel!
 
 PART #general
-QUIT :Goodbye!
 ```
 
 ---
@@ -164,7 +162,7 @@ IRC messages are text-based and normally terminated with `\r\n`. Since network d
 
 # Resources
 
-* **RFC 1459:** — Internet Relay Chat Protocol (https://www.rfc-editor.org/info/rfc1459
+* **RFC 1459:** — Internet Relay Chat Protocol (https://www.rfc-editor.org/info/rfc1459)
 * **Linux `man` pages** — `socket()`, `bind()`, `listen()`, `accept()`, `poll()`, `recv()`, `send()`, etc.
 * **geeksforgeeks** — socket programming in C (https://www.geeksforgeeks.org/c/socket-programming-cc/)
 
